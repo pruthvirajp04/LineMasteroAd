@@ -1,0 +1,37 @@
+{
+  "client": [
+    {
+      "services": {
+        "appinvite_service": {
+          "status": 0
+        }, 
+        "analytics_service": {
+          "status": 0
+        }
+      }, 
+      "oauth_client": [
+        {
+          "client_id": "300121713270-sn08ovagiv982abarfag3gqld1ljgk82.apps.googleusercontent.com"
+        }
+      ], 
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm9wQ4XV6vmjR47keNtDCQvMk5r1_OWS8"
+        }
+      ], 
+      "client_info": {
+        "mobilesdk_app_id": "1:300121713270:ios:0a035f714c90025b", 
+        "android_client_info": {
+          "package_name": "com.ponygames.MagicBlockPuzzle"
+        }
+      }
+    }
+  ], 
+  "configuration_version": "1", 
+  "project_info": {
+    "storage_bucket": "magicblockpuzzle.appspot.com", 
+    "project_id": "magicblockpuzzle", 
+    "firebase_url": "https://magicblockpuzzle.firebaseio.com", 
+    "project_number": "300121713270"
+  }
+}

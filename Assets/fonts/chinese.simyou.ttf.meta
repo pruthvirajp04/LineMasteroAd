@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: b45883c3d057e86479c3a371096b52bb
+timeCreated: 1530353640
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 90
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: YouYuan
+  fontNames:
+  - YouYuan
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 7ee7c029d9d5c6c479992c5714324a52, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
