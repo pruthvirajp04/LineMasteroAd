@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Runtime.InteropServices;
 using UnityEngine.SceneManagement;
 using TMPro;
-using UnityEngine.UI;
+
 
 public class GlanceAds : MonoBehaviour
 {
@@ -23,196 +23,40 @@ public class GlanceAds : MonoBehaviour
     public static extern void EndAnalytics(int level);
     [DllImport("__Internal")]
     public static extern void LevelAnalytics(int level);
-    // Start is called before the first frame update
-    void onAwake()
-    {
-        LoadGlanceAds();
-    }
-    public void muteAudio(){
-        AudioManager.instance.TurnMusicOff();
-        AudioManager.instance.TurnSoundOff();
-    }
-    public void doneReplay(){
-        if(PlayerPrefs.GetInt("Music") == 0)
-        {
-            AudioManager.instance.TurnMusicOn();
-        }
-        else
-        {
-            AudioManager.instance.TurnMusicOff();
-        }
-        if (PlayerPrefs.GetInt("Sound") == 0)
-        {
-            AudioManager.instance.TurnSoundOn();
-        }
-        else
-        {
-            AudioManager.instance.TurnSoundOff();
-        }
-    }
-    public void doneReplay1f(){
-        if(PlayerPrefs.GetInt("Music") == 0)
-        {
-            AudioManager.instance.TurnMusicOn();
-        }
-        else
-        {
-            AudioManager.instance.TurnMusicOff();
-        }
-        if (PlayerPrefs.GetInt("Sound") == 0)
-        {
-            AudioManager.instance.TurnSoundOn();
-        }
-        else
-        {
-            AudioManager.instance.TurnSoundOff();
-        }
-         StartCoroutine(UIManager.instance.ShowGameOverIE());
-    }
+   
+    //Work on Ads first and add analytics later. 
+
     public void deleteGlanceKey(){
         PlayerPrefs.DeleteKey("firstGlance");
     }
+    public void muteAudio(){
+        //Mute All Audios Here
+        //Did it for reference, so you can create logic for other purposes.
+        AudioManager.SetMusicStatus(false);
+        AudioManager.SetSoundStatus(false);
+    }
+    public void doneReplay(){
+       //You will show a replay ad when the restart button is clicked(You need to find the function for the restart button in other C# files). And once they are done, in the callback of that ad you will call this function to resume music/sound here based on the initial state of music/sound.
+       //Check if the audio was already muted or unmuted before the ad was shown and mute/unmute audio based on that here..
+       
+    }
     public void doneReplay1w(){
-        if(PlayerPrefs.GetInt("Music") == 0)
-        {
-            AudioManager.instance.TurnMusicOn();
-        }
-        else
-        {
-            AudioManager.instance.TurnMusicOff();
-        }
-        if (PlayerPrefs.GetInt("Sound") == 0)
-        {
-            AudioManager.instance.TurnSoundOn();
-        }
-        else
-        {
-            AudioManager.instance.TurnSoundOff();
-        } 
-         StartCoroutine(UIManager.instance.ShowGameWinIE());
+        //You will show a replay ad when the win screen is shown(You need to find the function for it in other C# files). And once they are done, in the callback of that ad you will call this function to resume music/sound here based on the initial state of music/sound and show the win screen.
+        //Check if the audio was already muted or unmuted before the ad was shown and mute/unmute audio based on that here..
+        //Call the function that shows the win screen. You need to find this in C# files.
+
     }
 
     public void HintReward(){
-        if(PlayerPrefs.GetInt("Music") == 0)
-        {
-            AudioManager.instance.TurnMusicOn();
-        }
-        else
-        {
-            AudioManager.instance.TurnMusicOff();
-        }
-        if (PlayerPrefs.GetInt("Sound") == 0)
-        {
-            AudioManager.instance.TurnSoundOn();
-        }
-        else
-        {
-            AudioManager.instance.TurnSoundOff();
-        }
-        GameController.instance.hint = true;
+        //You will show a rewarded ad when the hint button is clicked(You need to find the function for it in other C# files). And only if the user has watched the ad fully i.e success case (check glance documentation to know more about success and failure cases [https://glanceinmobi.atlassian.net/wiki/spaces/GSC/pages/815628492/Rewarded+page]), in the callback of that ad you will call this function to resume music/sound here based on the initial state of music/sound and show the hint.
+        //Check if the audio was already muted or unmuted before the ad was shown and mute/unmute audio based on that here..
+        //Call the function that shows the win screen. You need to find this in C# files.
+
     }
     public void CancelHintReward(){
-        if(PlayerPrefs.GetInt("Music") == 0)
-        {
-            AudioManager.instance.TurnMusicOn();
-        }
-        else
-        {
-            AudioManager.instance.TurnMusicOff();
-        }
-        if (PlayerPrefs.GetInt("Sound") == 0)
-        {
-            AudioManager.instance.TurnSoundOn();
-        }
-        else
-        {
-            AudioManager.instance.TurnSoundOff();
-        }
-    }
+        //You will show a rewarded ad when the hint button is clicked(You need to find the function for it in other C# files). And only if the user hasn't watched the ad fully i.e failure case (check glance documentation to know more about success and failure cases [https://glanceinmobi.atlassian.net/wiki/spaces/GSC/pages/815628492/Rewarded+page]), in the callback of that ad you will call this function to only resume music/sound here based on the initial state of music/sound.
+        //Check if the audio was already muted or unmuted before the ad was shown and mute/unmute audio based on that here..
+        //That's it, no need to show hints.
 
-    public void SkipLevelReward(){
-        if(PlayerPrefs.GetInt("Music") == 0)
-        {
-            AudioManager.instance.TurnMusicOn();
-        }
-        else
-        {
-            AudioManager.instance.TurnMusicOff();
-        }
-        if (PlayerPrefs.GetInt("Sound") == 0)
-        {
-            AudioManager.instance.TurnSoundOn();
-        }
-        else
-        {
-            AudioManager.instance.TurnSoundOff();
-        }
-        GameController.instance.skip = true;
-        UIManager.instance.skipBtn.GetComponent<Button>().enabled = false;
-        //GameController.instance.uiManager.ActiveClock();
-        GameController.instance.currentState = GameController.STATE.FINISH;  
-        UIManager.instance.ShowResult();
-        UIManager.instance.startClock = false;
-        UIManager.instance.clock.SetActive(false);
-        UIManager.instance.beeDirection = false; 
-             
-    }
-    public void CancelSkipLevelReward(){
-        if(PlayerPrefs.GetInt("Music") == 0)
-        {
-            AudioManager.instance.TurnMusicOn();
-        }
-        else
-        {
-            AudioManager.instance.TurnMusicOff();
-        }
-        if (PlayerPrefs.GetInt("Sound") == 0)
-        {
-            AudioManager.instance.TurnSoundOn();
-        }
-        else
-        {
-            AudioManager.instance.TurnSoundOff();
-        }    
-    }
-    public void DoubleCoinReward(){
-        if(PlayerPrefs.GetInt("Music") == 0)
-        {
-            AudioManager.instance.TurnMusicOn();
-        }
-        else
-        {
-            AudioManager.instance.TurnMusicOff();
-        }
-        if (PlayerPrefs.GetInt("Sound") == 0)
-        {
-            AudioManager.instance.TurnSoundOn();
-        }
-        else
-        {
-            AudioManager.instance.TurnSoundOff();
-        }
-        PlayerData.instance.coins = Stars.instance.requiredCoins;
-        PlayerPrefs.SetInt("coins",PlayerData.instance.coins);
-        Stars.instance.dc = true;
-        StartCoroutine(Stars.instance.InstantiateAndMoveCoins());        
-    }
-    public void CancelDoubleCoinReward(){
-        if(PlayerPrefs.GetInt("Music") == 0)
-        {
-            AudioManager.instance.TurnMusicOn();
-        }
-        else
-        {
-            AudioManager.instance.TurnMusicOff();
-        }
-        if (PlayerPrefs.GetInt("Sound") == 0)
-        {
-            AudioManager.instance.TurnSoundOn();
-        }
-        else
-        {
-            AudioManager.instance.TurnSoundOff();
-        }
     }
 }
