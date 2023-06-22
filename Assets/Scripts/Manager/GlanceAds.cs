@@ -25,6 +25,10 @@ public class GlanceAds : MonoBehaviour
     public static extern void LevelAnalytics(int level);
    
     //Work on Ads first and add analytics later. 
+    void Awake()
+    {
+        LoadGlanceAds();
+    }
 
     public void deleteGlanceKey(){
         PlayerPrefs.DeleteKey("firstGlance");
