@@ -27,7 +27,7 @@ public class GlanceAds : MonoBehaviour
     //Work on Ads first and add analytics later. 
     void Awake()
     {
-        LoadGlanceAds();
+        //LoadGlanceAds();
     }
 
     public void deleteGlanceKey(){
