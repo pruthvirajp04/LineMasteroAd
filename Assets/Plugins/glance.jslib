@@ -1,11 +1,11 @@
 var plugin = {
     RewardedAd: function(type)
-    {  let type1 = UTF8ToString(type);
+    {  var type1 = UTF8ToString(type);
          _triggerReason = type1;
         rewardEvent();
     },
     ReplayAd: function(type)
-    {  let type1 = UTF8ToString(type);
+    {  var type1 = UTF8ToString(type);
         _triggerReason = type1;
         replayEvent();
     },
