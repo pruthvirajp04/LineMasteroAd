@@ -7,7 +7,7 @@ using DG.Tweening;
 public class WinPopupControl : MonoBehaviour
 {
 
-	public Text tLevel, tCompleted, tNext, tShare, tFirstTimeCoins, tCoinAddValue;
+	public Text tLevel, tCompleted, tNext, tShare,  tCoinAddValue;
 	//string text = "Coins can be obtained for the first time";
 	public Image iCoinIcon;
 
@@ -22,22 +22,23 @@ public class WinPopupControl : MonoBehaviour
 		//tShare.text = LanguageManager.GetText (LanguageKey.share);
 
 		GameManager.currentLevel++;
-		if (GameManager.currentLevel > GameManager.lvMax) {
+		if (GameManager.currentLevel > GameManager.lvMax) 
+		{
 			// nếu là lần đầu thằng level này thì hiện phần thêm coin
-			GameManager.lvMax = GameManager.currentLevel;
-			tFirstTimeCoins.enabled = true;
+			GameManager.lvMax = GameManager.currentLevel;			
 			tCoinAddValue.enabled = true;
 			iCoinIcon.enabled = true;
 			tCompleted.rectTransform.anchoredPosition = new Vector2 (0, -17);
-			tFirstTimeCoins.text = LanguageManager.GetText (LanguageKey.earn_money);
+			
 
 			// add 3 coin 
 			AudioManager.PlaySound (AudioClipType.AC_GET_COIN);
 			GameManager.dataSave.coinCount += 10;
 			GameManager.SaveData ();
-		} else {
+		} 
+		else 
+		{
 			tCompleted.rectTransform.anchoredPosition = new Vector2 (0, -46);
-			tFirstTimeCoins.enabled = false;
 			iCoinIcon.enabled = false;
 			tCoinAddValue.enabled = false;
 		}

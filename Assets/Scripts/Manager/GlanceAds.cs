@@ -61,7 +61,7 @@ public class GlanceAds : MonoBehaviour
 
         AudioManager.SetMusicStatus(AudioManager.instance.GetMusicStatus());
         AudioManager.SetSoundStatus(AudioManager.instance.GetSoundStatus());
-        GameControl.instance.bHint = true;
+        //GameControl.instance.bHint = true;
 
     }
     public void CancelHintReward(){
