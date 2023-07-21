@@ -8,45 +8,103 @@ using TMPro;
 
 public class GlanceAds : MonoBehaviour
 {
+    [SerializeField] Transform popupParent;
+
     public static GlanceAds instance;
+
     [DllImport("__Internal")]
     public static extern void LoadGlanceAds();
+
     [DllImport("__Internal")]
     public static extern void RewardedAd(string type);
+
     [DllImport("__Internal")]
     public static extern void ReplayAd(string type);
+
+    [DllImport("__Internal")]
+    public static extern void LoadAnalytics();
+
     [DllImport("__Internal")]
     public static extern void StartAnalytics();
+
     [DllImport("__Internal")]
     public static extern void ReplayAnalytics(int level);
+
     [DllImport("__Internal")]
     public static extern void EndAnalytics(int level);
+
     [DllImport("__Internal")]
     public static extern void LevelAnalytics(int level);
-   
-    //Work on Ads first and add analytics later. 
+
+    [DllImport("__Internal")]
+    public static extern void LevelCompletedAnalytics(int level);
+
+    [DllImport("__Internal")]
+    public static extern void RewardedAdsAnalytics(string successCBf, string failureCBf);
+
+    [DllImport("__Internal")]
+    public static extern void MilestoneAnalytics(int collectedStars, int level);
+
+    [DllImport("__Internal")]
+    public static extern void GameLifeEndAnalytics(int RemainingLife, int level);
+
+    [DllImport("__Internal")]
+    public static extern void InGameAnalytics(string items, int amount, int level);
+
+    
     void Awake()
     {
-        //LoadGlanceAds();
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void deleteGlanceKey(){
         PlayerPrefs.DeleteKey("firstGlance");
     }
-    public void muteAudio(){
-        //Mute All Audios Here
-        //Did it for reference, so you can create logic for other purposes.
+    public void muteAudio()
+    {
         AudioManager.SetMusicStatus(false);
         AudioManager.SetSoundStatus(false);
     }
-    public void doneReplay(){
+    public void setLanguage(string LanguageChar)
+    {
+        PlayerPrefs.DeleteKey("LanguageChar");
+        PlayerPrefs.SetString("LanguageChar", LanguageChar);
+    }
+
+    public void setAd(string Adtype)
+    {
+        PlayerPrefs.SetInt(Adtype, 1);
+    }
+
+    public void pauseEvent()
+    {
+        //TODO: logic to pause the game
+        if(GameManager.gameState == GameState.Playing && GameConfig.instance.tutorialControl.haveTutorial == false)
+        {
+            GameManager.gameState = GameState.Pause;
+            Debug.Log("Pause Event Works");
+        }
+        
+    }
+    
+    public void resumeEvent()
+    {
+        //TODO: logic to resume the game
+        if(GameManager.gameState == GameState.Pause)
+        {
+            Time.timeScale = 1;
+            GameManager.gameState = GameState.Playing;
+        }
+    }
+    public void DoneReplay(){
        //You will show a replay ad when the restart button is clicked(You need to find the function for the restart button in other C# files). And once they are done, in the callback of that ad you will call this function to resume music/sound here based on the initial state of music/sound.
        //Check if the audio was already muted or unmuted before the ad was shown and mute/unmute audio based on that here..
 
         AudioManager.SetMusicStatus(AudioManager.instance.GetMusicStatus());
         AudioManager.SetSoundStatus(AudioManager.instance.GetSoundStatus());  
     }
-    public void doneReplay1w(){
+    public void DoneReplayWin(){
         //You will show a replay ad when the win screen is shown(You need to find the function for it in other C# files). And once they are done, in the callback of that ad you will call this function to resume music/sound here based on the initial state of music/sound and show the win screen.
         //Check if the audio was already muted or unmuted before the ad was shown and mute/unmute audio based on that here..
 

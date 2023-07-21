@@ -5,11 +5,8 @@ using UnityEngine;
 public class PauseButton : MonoBehaviour
 {
 
-	void OnMouseDown ()
+	void OnMouseDown()
 	{
-		if (GameManager.gameState == GameState.Playing && GameConfig.instance.tutorialControl.haveTutorial == false) {
-			AudioManager.PlaySound (AudioClipType.AC_BUTTON);
-			GameManager.gameState = GameState.Pause;
-		}
+		GlanceAds.instance.pauseEvent();
 	}
 }
