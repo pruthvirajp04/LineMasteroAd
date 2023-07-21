@@ -35,7 +35,7 @@ public class PausePopup : MonoBehaviour
 
 	public void Continue ()
 	{
-		GameManager.gameState = GameState.Playing;
+		GlanceAds.instance.resumeEvent();
 	}
 
 	public void ChangeSoundStatus ()

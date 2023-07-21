@@ -93,8 +93,8 @@ public class GlanceAds : MonoBehaviour
         //TODO: logic to resume the game
         if(GameManager.gameState == GameState.Pause)
         {
-            Time.timeScale = 1;
             GameManager.gameState = GameState.Playing;
+            Debug.Log("Resume Event works");
         }
     }
     public void DoneReplay(){
