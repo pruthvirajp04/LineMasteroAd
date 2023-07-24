@@ -120,7 +120,12 @@ public class GlanceAds : MonoBehaviour
     public void gotoHomeEvent()
     {
         //TODO: Logic to go to home screen
-
+        PausePopup pausePopup = FindObjectOfType<PausePopup>();
+        if (pausePopup != null)
+        {
+            pausePopup.Menu();
+            Debug.Log("Go to home event works");
+        }
     }
 
     public void gotoLevel(int levelNo)
