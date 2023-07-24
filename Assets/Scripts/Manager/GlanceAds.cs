@@ -110,6 +110,23 @@ public class GlanceAds : MonoBehaviour
             Debug.Log("Replay Game Event works");
         }
     }
+
+    public void nextLevelEvent()
+    {
+        //TODO: Logic to go to the next level
+        gameControl.NextLevel();
+    }
+
+    public void gotoHomeEvent()
+    {
+        //TODO: Logic to go to home screen
+
+    }
+
+    public void gotoLevel(int levelNo)
+    {
+        //TODO: Logic to go to a specific level
+    }
     public void DoneReplay(){
        //You will show a replay ad when the restart button is clicked(You need to find the function for the restart button in other C# files). And once they are done, in the callback of that ad you will call this function to resume music/sound here based on the initial state of music/sound.
        //Check if the audio was already muted or unmuted before the ad was shown and mute/unmute audio based on that here..
