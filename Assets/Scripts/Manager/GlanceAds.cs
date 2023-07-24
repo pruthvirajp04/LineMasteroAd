@@ -51,12 +51,15 @@ public class GlanceAds : MonoBehaviour
     [DllImport("__Internal")]
     public static extern void InGameAnalytics(string items, int amount, int level);
 
+    private GameControl gameControl;
     
     void Awake()
     {
         instance = this;
         DontDestroyOnLoad(gameObject);
+        gameControl = FindObjectOfType<GameControl>();
     }
+
 
     public void deleteGlanceKey(){
         PlayerPrefs.DeleteKey("firstGlance");
@@ -95,6 +98,16 @@ public class GlanceAds : MonoBehaviour
         {
             GameManager.gameState = GameState.Playing;
             Debug.Log("Resume Event works");
+        }
+    }
+
+    public void replayGameEvent()
+    {
+        //TODO: Logic to replay the game Level
+        if(gameControl!=null)
+        {
+            gameControl.RestartLevel();
+            Debug.Log("Replay Game Event works");
         }
     }
     public void DoneReplay(){
