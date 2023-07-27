@@ -131,6 +131,8 @@ public class GlanceAds : MonoBehaviour
     public void gotoLevel(int levelNo)
     {
         //TODO: Logic to go to a specific level
+        GameManager.currentLevel = levelNo;
+        GameManager.gameState = GameState.Playing;
     }
     public void DoneReplay(){
        //You will show a replay ad when the restart button is clicked(You need to find the function for the restart button in other C# files). And once they are done, in the callback of that ad you will call this function to resume music/sound here based on the initial state of music/sound.

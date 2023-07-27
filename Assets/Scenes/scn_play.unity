@@ -960,8 +960,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 988144605}
-        m_MethodName: RestartLevel
+      - m_Target: {fileID: 1320734988}
+        m_MethodName: replayGameEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3040,8 +3040,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1072130642}
-        m_MethodName: Menu
+      - m_Target: {fileID: 1320734988}
+        m_MethodName: gotoHomeEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
