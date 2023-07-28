@@ -229,6 +229,11 @@ public class GameControl : MonoBehaviour
 
     public void StartNewLevel()
     {
+        if(GameManager.currentLevel % 3 == 0)
+        {
+            GlanceAds.ReplayAd("ReplayOnLevel");
+            Debug.Log("AD WORKS");
+        }
         // khi bat dau vao choi thi bat am thanh bg game music len 
         AudioManager.PlayMusic(Random.Range(0, 100) > 50 ? AudioClipType.AC_BGM_GAME_1 : AudioClipType.AC_BGM_GAME_2);
         StopHint();
@@ -276,6 +281,7 @@ public class GameControl : MonoBehaviour
 
     public void RestartLevel()
     {
+        GlanceAds.ReplayAd("ReplayOnRestart");
         // chỉ cho restart khi đang không có tutorial
         if (GameConfig.instance.tutorialControl.haveTutorial == false)
         {
