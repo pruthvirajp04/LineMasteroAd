@@ -13,6 +13,10 @@ public class WinPopupControl : MonoBehaviour
 
 	void OnEnable ()
 	{
+		if(GameManager.currentLevel % 3 == 0)
+		{
+			GlanceAds.ReplayAd("ReplayOnLevel");
+		}
 		transform.position = new Vector3 (0, 0, 0);
 		transform.localScale = new Vector3 (0, 0, 0);
 		transform.DOScale (new Vector3 (1, 1, 1), 1F).SetEase (Ease.OutElastic);
@@ -42,7 +46,7 @@ public class WinPopupControl : MonoBehaviour
 			iCoinIcon.enabled = false;
 			tCoinAddValue.enabled = false;
 		}
-        StartCoroutine(ShowAds());
+        //StartCoroutine(ShowAds());
 	}
 
 	public void Next ()

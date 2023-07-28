@@ -229,11 +229,6 @@ public class GameControl : MonoBehaviour
 
     public void StartNewLevel()
     {
-        if(GameManager.currentLevel % 3 == 0)
-        {
-            GlanceAds.ReplayAd("ReplayOnLevel");
-            Debug.Log("AD WORKS");
-        }
         // khi bat dau vao choi thi bat am thanh bg game music len 
         AudioManager.PlayMusic(Random.Range(0, 100) > 50 ? AudioClipType.AC_BGM_GAME_1 : AudioClipType.AC_BGM_GAME_2);
         StopHint();
