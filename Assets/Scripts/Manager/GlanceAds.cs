@@ -155,7 +155,7 @@ public class GlanceAds : MonoBehaviour
         //Call the function that shows the win screen. You need to find this in C# files.
         GameManager.dataSave.hintCount++;
         GameManager.SaveData();
-        RewardedAd("Hint");
+   
         AudioManager.SetMusicStatus(AudioManager.instance.GetMusicStatus());
         AudioManager.SetSoundStatus(AudioManager.instance.GetSoundStatus());
 
