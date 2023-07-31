@@ -153,9 +153,23 @@ public class GlanceAds : MonoBehaviour
         //You will show a rewarded ad when the hint button is clicked(You need to find the function for it in other C# files). And only if the user has watched the ad fully i.e success case (check glance documentation to know more about success and failure cases [https://glanceinmobi.atlassian.net/wiki/spaces/GSC/pages/815628492/Rewarded+page]), in the callback of that ad you will call this function to resume music/sound here based on the initial state of music/sound and show the hint.
         //Check if the audio was already muted or unmuted before the ad was shown and mute/unmute audio based on that here..
         //Call the function that shows the win screen. You need to find this in C# files.
+        GameManager.dataSave.hintCount++;
+        GameManager.SaveData();
         RewardedAd("Hint");
         AudioManager.SetMusicStatus(AudioManager.instance.GetMusicStatus());
         AudioManager.SetSoundStatus(AudioManager.instance.GetSoundStatus());
+
+        if(GameConfig.instance.tutorialControl.haveTutorial)
+        {
+            return;
+        }
+
+        if(GameManager.dataSave.hintCount > 0)
+        {
+            GameManager.dataSave.hintCount--;
+            GameManager.SaveData();
+            GameControl.instance.Hint();
+        }
         //GameControl.instance.bHint = true;
 
     }
@@ -169,19 +183,6 @@ public class GlanceAds : MonoBehaviour
         AudioManager.SetSoundStatus(AudioManager.instance.GetSoundStatus());
     }
 
-    //callback function for rewarded ads
-    public void DoneHintReward()
-    {
-        if (GameConfig.instance.tutorialControl.haveTutorial)
-        {
-            return;
-        }
-
-        if (GameManager.dataSave.hintCount > 0)
-        {
-            GameManager.dataSave.hintCount--;
-            GameManager.SaveData();
-            GameControl.instance.Hint();
-        }
-    }
+   
+    
 }

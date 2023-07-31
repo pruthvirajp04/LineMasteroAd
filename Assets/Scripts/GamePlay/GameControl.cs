@@ -822,6 +822,10 @@ public class GameControl : MonoBehaviour
 
     public void Hint()
     {
+        if(GlanceAds.instance != null)
+        {
+            GlanceAds.RewardedAd("Hint");
+        }
         if (GameConfig.instance.tutorialControl.haveTutorial)
         {
             return;
