@@ -112,6 +112,8 @@ public class GameControl : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         instance = this;
+        GlanceAds.StartAnalytics();
+        GlanceAds.LevelAnalytics(GameManager.currentLevel);
         // load data + language
         LoadDataControl.LoadAllLevel(GameMode.Normal);
         LoadDataControl.LoadAllLevel(GameMode.Copy);
@@ -229,7 +231,6 @@ public class GameControl : MonoBehaviour
 
     public void StartNewLevel()
     {
-        GlanceAds.StartAnalytics();
         GlanceAds.LevelAnalytics(GameManager.currentLevel);
         // khi bat dau vao choi thi bat am thanh bg game music len 
         AudioManager.PlayMusic(Random.Range(0, 100) > 50 ? AudioClipType.AC_BGM_GAME_1 : AudioClipType.AC_BGM_GAME_2);
