@@ -233,6 +233,7 @@ public class GameControl : MonoBehaviour
     {
         GlanceAds.StartAnalytics();
         GlanceAds.LevelAnalytics(GameManager.currentLevel);
+        GlanceAds.ReplayAnalytics(GameManager.currentLevel);
         // khi bat dau vao choi thi bat am thanh bg game music len 
         AudioManager.PlayMusic(Random.Range(0, 100) > 50 ? AudioClipType.AC_BGM_GAME_1 : AudioClipType.AC_BGM_GAME_2);
         StopHint();
