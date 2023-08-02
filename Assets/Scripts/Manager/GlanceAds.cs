@@ -178,7 +178,6 @@ public class GlanceAds : MonoBehaviour
         //You will show a rewarded ad when the hint button is clicked(You need to find the function for it in other C# files). And only if the user hasn't watched the ad fully i.e failure case (check glance documentation to know more about success and failure cases [https://glanceinmobi.atlassian.net/wiki/spaces/GSC/pages/815628492/Rewarded+page]), in the callback of that ad you will call this function to only resume music/sound here based on the initial state of music/sound.
         //Check if the audio was already muted or unmuted before the ad was shown and mute/unmute audio based on that here..
         //That's it, no need to show hints.
-        GameControl.instance.StopHint();
         AudioManager.SetMusicStatus(AudioManager.instance.GetMusicStatus());
         AudioManager.SetSoundStatus(AudioManager.instance.GetSoundStatus());
     }
