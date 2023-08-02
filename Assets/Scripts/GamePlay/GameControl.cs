@@ -279,6 +279,7 @@ public class GameControl : MonoBehaviour
 
     public void RestartLevel()
     {
+        GlanceAds.LevelAnalytics(GameManager.currentLevel);
         GlanceAds.ReplayAnalytics(GameManager.currentLevel);
         GlanceAds.ReplayAd("ReplayOnRestart");
         // chỉ cho restart khi đang không có tutorial
@@ -658,7 +659,7 @@ public class GameControl : MonoBehaviour
 
         if (isWin && isWin2)
         {
-
+            GlanceAds.LevelCompletedAnalytics(GameManager.currentLevel);
             StartCoroutine(WinCoroutine());
         }
     }
