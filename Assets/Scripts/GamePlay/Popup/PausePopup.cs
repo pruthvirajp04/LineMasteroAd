@@ -27,6 +27,7 @@ public class PausePopup : MonoBehaviour
 
 	public void Menu ()
 	{
+		GlanceAds.EndAnalytics(GameManager.currentLevel);
 		GlanceAds.ReplayAd("ReplayOnHome");
 		if (GameConfig.instance.tutorialControl.haveTutorial) {
 			GameConfig.instance.tutorialControl.gameObject.SetActive (false);

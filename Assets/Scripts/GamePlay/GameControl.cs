@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
-
 public class GameControl : MonoBehaviour
 {
     // các button trợ giúp gameplay
@@ -112,8 +111,7 @@ public class GameControl : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         instance = this;
-        GlanceAds.StartAnalytics();
-        GlanceAds.LevelAnalytics(GameManager.currentLevel);
+       
         // load data + language
         LoadDataControl.LoadAllLevel(GameMode.Normal);
         LoadDataControl.LoadAllLevel(GameMode.Copy);
@@ -124,11 +122,13 @@ public class GameControl : MonoBehaviour
         listUndoModuleInitLine2 = new List<UndoModule>();
         listUndoModuleMirrorLine = new List<UndoModule>();
         //PlayerPrefs.DeleteAll();
-
+        
     }
 
     void Start()
     {
+        //GlanceAds.StartAnalytics();
+       
         // copy listLineColor sang temp
         listColorTemp = new List<Color>();
         for (int i = 0; i < GameConfig.instance.listLineColors.Count; i++)
@@ -231,6 +231,7 @@ public class GameControl : MonoBehaviour
 
     public void StartNewLevel()
     {
+        GlanceAds.StartAnalytics();
         GlanceAds.LevelAnalytics(GameManager.currentLevel);
         // khi bat dau vao choi thi bat am thanh bg game music len 
         AudioManager.PlayMusic(Random.Range(0, 100) > 50 ? AudioClipType.AC_BGM_GAME_1 : AudioClipType.AC_BGM_GAME_2);
@@ -661,6 +662,7 @@ public class GameControl : MonoBehaviour
         {
             GlanceAds.LevelCompletedAnalytics(GameManager.currentLevel);
             StartCoroutine(WinCoroutine());
+            GlanceAds.EndAnalytics(GameManager.currentLevel);
         }
     }
     //-------------------------------------------
@@ -829,6 +831,7 @@ public class GameControl : MonoBehaviour
     {
         if(GlanceAds.instance != null)
         {
+            GlanceAds.RewardedAdsAnalytics("HintReward", "CancelHintReward");
             GlanceAds.RewardedAd("Hint");
         }
         if (GameConfig.instance.tutorialControl.haveTutorial)
@@ -849,7 +852,7 @@ public class GameControl : MonoBehaviour
         }
     }
 
-    void StopHint()
+    public void StopHint()
     {
         if (hintCrt != null)
         {
@@ -944,7 +947,11 @@ public class GameControl : MonoBehaviour
 
     public void Undo()
     {
-
+        if(GlanceAds.instance != null)
+        {
+            GlanceAds.RewardedAdsAnalytics("UndoReward", "CancelUndoReward");
+            GlanceAds.RewardedAd("Undo");
+        }
         if (GameConfig.instance.tutorialControl.haveTutorial == true)
         {
             // 
