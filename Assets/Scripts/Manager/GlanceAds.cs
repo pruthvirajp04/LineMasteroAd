@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Runtime.InteropServices;
 using UnityEngine.SceneManagement;
 using TMPro;
-
+using System;
 
 public class GlanceAds : MonoBehaviour
 {
@@ -73,6 +73,15 @@ public class GlanceAds : MonoBehaviour
     {
         PlayerPrefs.DeleteKey("LanguageChar");
         PlayerPrefs.SetString("LanguageChar", LanguageChar);
+        
+        if(LanguageChar.Equals("en", StringComparison.OrdinalIgnoreCase))
+        {
+            GameManager.dataSave.language = Language.English;
+        }
+        else if(LanguageChar.Equals("bh", StringComparison.OrdinalIgnoreCase))
+        {
+            GameManager.dataSave.language = Language.Bahasa;
+        }
     }
 
     public void setAd(string Adtype)

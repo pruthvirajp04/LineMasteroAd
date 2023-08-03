@@ -12,8 +12,8 @@ public class LanguageManager : MonoBehaviour
 	void Awake ()
 	{
 		instance = this;
-
 	}
+	
 
 	void Start ()
 	{
@@ -36,7 +36,8 @@ public class LanguageManager : MonoBehaviour
 
 public enum Language
 {
-	English
+	English,
+	Bahasa
 }
 
 [System.Serializable]
