@@ -15,13 +15,25 @@ public class SelectLevelControl : MonoBehaviour
 	{
 		// mỗi khi mở trang chọn level thì sẽ lấy ngẫu nhiên mainColor
 		//GameConfig.mainColor = GameConfig.instance.listLineColors [Random.Range (0, GameConfig.instance.listLineColors.Count)];
-
+	
 		page = GameManager.lvMax / 12 + 1;
 		InitLevel ();
 	}
 
 	void Start ()
 	{
+		if(PlayerPrefs.GetInt("firstGlance") == 1)
+		{
+			GlanceAds.ReplayAnalytics(GameManager.currentLevel);
+			GlanceAds.LevelAnalytics(GameManager.currentLevel);
+		}
+		else
+		{
+			PlayerPrefs.SetInt("firstGlance", 1);
+			GlanceAds.StartAnalytics();
+			GlanceAds.LevelAnalytics(GameManager.currentLevel);
+
+		}
 		// tính số trang tối đa 
 		maxPage = GameManager.LevelDataDict [GameManager.currentGameMode].Count / 12 + 1;
 		InitLevel ();
