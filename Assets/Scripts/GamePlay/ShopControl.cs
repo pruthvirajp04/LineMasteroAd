@@ -44,11 +44,11 @@ public class ShopControl : MonoBehaviour
 	{
 		// show video reward , khi kết thúc gọi hàm OnVideoReward
 		AudioManager.PlaySound (AudioClipType.AC_BUTTON);
-        if (AdsControl.Instance.GetRewardAvailable())
-        {
-            AdsControl.Instance.ShowRewardVideo();
-            OnVideoReward();
-        }
+        // if (AdsControl.Instance.GetRewardAvailable())
+        // {
+        //     AdsControl.Instance.ShowRewardVideo();
+        //     OnVideoReward();
+        // }
 
 	}
 

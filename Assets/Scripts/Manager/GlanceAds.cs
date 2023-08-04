@@ -13,9 +13,6 @@ public class GlanceAds : MonoBehaviour
     public static GlanceAds instance;
 
     [DllImport("__Internal")]
-    public static extern void LoadGlanceAds();
-
-    [DllImport("__Internal")]
     public static extern void RewardedAd(string type);
 
     [DllImport("__Internal")]
@@ -49,7 +46,7 @@ public class GlanceAds : MonoBehaviour
     public static extern void GameLifeEndAnalytics(int RemainingLife, int level);
 
     [DllImport("__Internal")]
-    public static extern void InGameAnalytics(string items, int amount, int level);
+    public static extern void IngameAnalytics(string items, int amount, int level);
 
     private GameControl gameControl;
     

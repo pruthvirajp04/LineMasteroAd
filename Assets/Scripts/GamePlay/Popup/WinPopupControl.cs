@@ -71,6 +71,6 @@ public class WinPopupControl : MonoBehaviour
     IEnumerator ShowAds()
     {
         yield return new WaitForSeconds(1.0f);
-        AdsControl.Instance.showAds();
+       // AdsControl.Instance.showAds();
     }
 }
