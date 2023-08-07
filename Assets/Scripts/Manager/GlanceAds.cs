@@ -47,15 +47,12 @@ public class GlanceAds : MonoBehaviour
 
     [DllImport("__Internal")]
     public static extern void IngameAnalytics(string items, int amount, int level);
-
-    private GameControl gameControl;
     
     void Awake()
     {
         Application.runInBackground = true;
         instance = this;
         DontDestroyOnLoad(gameObject);
-        gameControl = FindObjectOfType<GameControl>();
     }
 
 
@@ -110,18 +107,16 @@ public class GlanceAds : MonoBehaviour
 
     public void replayGameEvent()
     {
-        //TODO: Logic to replay the game Level
-        if(gameControl!=null)
-        {
-            gameControl.RestartLevel();
-            Debug.Log("Replay Game Event works");
-        }
+        //TODO: Logic to replay the game Level    
+        GameControl.instance.RestartLevel();
+        Debug.Log("Replay Game Event works");
+        
     }
 
     public void nextLevelEvent()
     {
         //TODO: Logic to go to the next level
-        gameControl.NextLevel();
+        GameControl.instance.NextLevel();
     }
 
     public void gotoHomeEvent()
