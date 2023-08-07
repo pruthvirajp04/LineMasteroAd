@@ -52,6 +52,7 @@ public class GlanceAds : MonoBehaviour
     
     void Awake()
     {
+        Application.runInBackground = true;
         instance = this;
         DontDestroyOnLoad(gameObject);
         gameControl = FindObjectOfType<GameControl>();
