@@ -2172,7 +2172,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 305195861}
-  - component: {fileID: 305195863}
   - component: {fileID: 305195864}
   - component: {fileID: 305195862}
   m_Layer: 0
@@ -2294,14 +2293,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 305195864}
   m_maskType: 0
---- !u!222 &305195863
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 305195860}
-  m_CullTransparentMesh: 0
 --- !u!23 &305195864
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3652,7 +3643,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4801280662335672, guid: 0d0e7bfb24b285a46a1990e40a13f754, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4801280662335672, guid: 0d0e7bfb24b285a46a1990e40a13f754, type: 3}
       propertyPath: m_LocalPosition.x

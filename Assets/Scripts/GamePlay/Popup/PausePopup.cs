@@ -17,10 +17,12 @@ public class PausePopup : MonoBehaviour
 		tMusic.text = LanguageManager.GetText (LanguageKey.music_label);
 		musicToggle.value = GameManager.dataSave.isMusicOn;
 		soundToggle.value = GameManager.dataSave.isSoundOn;
+		
 
 	}
+    
 
-	void OnDisable ()
+    void OnDisable ()
 	{
 		GameCanvas.instance.blackLayer.gameObject.SetActive (false);
 	}
