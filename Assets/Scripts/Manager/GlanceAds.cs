@@ -116,6 +116,7 @@ public class GlanceAds : MonoBehaviour
     public void nextLevelEvent()
     {
         //TODO: Logic to go to the next level
+        GameManager.currentLevel++;
         GameControl.instance.NextLevel();
     }
 
