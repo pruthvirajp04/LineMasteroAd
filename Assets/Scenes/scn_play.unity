@@ -810,13 +810,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listBlurBackground:
-  - {fileID: 21300000, guid: 3d9994b8d974e3249bec0ed993e1a8d6, type: 3}
-  - {fileID: 21300000, guid: 55e9fef770b309441a4e20e7a3ca0d5a, type: 3}
-  - {fileID: 21300000, guid: eb164c123fdfc3b41bbd5b2179f9fb78, type: 3}
+  - {fileID: 21300000, guid: 8af79440b603e99438ee9632c7bd4e4c, type: 3}
+  - {fileID: 21300000, guid: 783e3ae43b18e8b419c29178fe536662, type: 3}
+  - {fileID: 21300000, guid: 7332750a16a10e540948f7d2d287f2dd, type: 3}
   listBackground:
-  - {fileID: 21300000, guid: ef4d7690a220da94db2aa59b7aec80da, type: 3}
-  - {fileID: 21300000, guid: d3b62904ba73e4846a53b69f45be125e, type: 3}
-  - {fileID: 21300000, guid: 1de358d4470ba6c45a076187180c9410, type: 3}
+  - {fileID: 21300000, guid: 7332750a16a10e540948f7d2d287f2dd, type: 3}
+  - {fileID: 21300000, guid: 783e3ae43b18e8b419c29178fe536662, type: 3}
+  - {fileID: 21300000, guid: 8af79440b603e99438ee9632c7bd4e4c, type: 3}
   iBackground: {fileID: 332983906}
   iBackgroundBlur: {fileID: 162100682}
 --- !u!1 &112254791
@@ -1322,7 +1322,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 55e9fef770b309441a4e20e7a3ca0d5a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8af79440b603e99438ee9632c7bd4e4c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1837,6 +1837,7 @@ GameObject:
   - component: {fileID: 299118014}
   - component: {fileID: 299118013}
   - component: {fileID: 299118015}
+  - component: {fileID: 299118016}
   m_Layer: 5
   m_Name: WinPopup
   m_TagString: Untagged
@@ -1883,7 +1884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.99264705, g: 0.97412306, b: 0.8247729, a: 1}
+  m_Color: {r: 0.4666667, g: 0.20000002, b: 0.054901965, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1926,6 +1927,21 @@ MonoBehaviour:
   tShare: {fileID: 1014972377}
   tCoinAddValue: {fileID: 1640407479}
   iCoinIcon: {fileID: 1959439744}
+--- !u!114 &299118016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299118011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.33333334, g: 0.15294118, b: 0.0627451, a: 1}
+  m_EffectDistance: {x: 4.3, y: 1.95}
+  m_UseGraphicAlpha: 1
 --- !u!1 &303365327
 GameObject:
   m_ObjectHideFlags: 0
@@ -2426,7 +2442,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ef4d7690a220da94db2aa59b7aec80da, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8af79440b603e99438ee9632c7bd4e4c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4559,7 +4575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.875, g: 0.6442698, b: 0.038602926, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6917,7 +6933,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 91cef4f70d6670844a44a3cf3de43625, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8045,7 +8061,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1382023546}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalPosition: {x: 0, y: -3.1, z: 0}
   m_LocalScale: {x: 1.0638298, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8093,7 +8109,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3f105cbbd0cb81e47aead21ae77fa797, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2e4f06340c8dabb49b85c93dd43010f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8239,7 +8255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6764706, g: 0.60185987, b: 0.60185987, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8467,7 +8483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.875, g: 0.6442698, b: 0.038602926, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8893,6 +8909,7 @@ GameObject:
   - component: {fileID: 1602910255}
   - component: {fileID: 1602910257}
   - component: {fileID: 1602910256}
+  - component: {fileID: 1602910258}
   m_Layer: 5
   m_Name: CoinGroup
   m_TagString: Untagged
@@ -8935,7 +8952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4666667, g: 0.20000002, b: 0.054901965, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8960,6 +8977,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1602910254}
   m_CullTransparentMesh: 0
+--- !u!114 &1602910258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602910254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.33333334, g: 0.15294118, b: 0.0627451, a: 1}
+  m_EffectDistance: {x: 3.99, y: 2.11}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1616706956
 GameObject:
   m_ObjectHideFlags: 0
@@ -9131,6 +9163,7 @@ GameObject:
   - component: {fileID: 1623930401}
   - component: {fileID: 1623930400}
   - component: {fileID: 1623930399}
+  - component: {fileID: 1623930402}
   m_Layer: 5
   m_Name: HintGroup
   m_TagString: Untagged
@@ -9151,7 +9184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4666667, g: 0.20000002, b: 0.054901965, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9198,6 +9231,21 @@ RectTransform:
   m_AnchoredPosition: {x: -215, y: 472}
   m_SizeDelta: {x: 158.04, y: 67.78}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1623930402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623930398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.33333334, g: 0.15294118, b: 0.0627451, a: 1}
+  m_EffectDistance: {x: 3.99, y: 2.11}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1629342051
 GameObject:
   m_ObjectHideFlags: 0
