@@ -231,9 +231,18 @@ public class GameControl : MonoBehaviour
 
     public void StartNewLevel()
     {
-        GlanceAds.StartAnalytics();
-        GlanceAds.LevelAnalytics(GameManager.currentLevel);
-        GlanceAds.ReplayAnalytics(GameManager.currentLevel);
+        if (PlayerPrefs.GetInt("firstGlance") == 1)
+        {
+            GlanceAds.ReplayAnalytics(GameManager.currentLevel);
+            GlanceAds.LevelAnalytics(GameManager.currentLevel);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("firstGlance", 1);
+            GlanceAds.StartAnalytics();
+            GlanceAds.LevelAnalytics(GameManager.currentLevel);
+
+        }
         // khi bat dau vao choi thi bat am thanh bg game music len 
         AudioManager.PlayMusic(Random.Range(0, 100) > 50 ? AudioClipType.AC_BGM_GAME_1 : AudioClipType.AC_BGM_GAME_2);
         StopHint();
@@ -281,8 +290,9 @@ public class GameControl : MonoBehaviour
 
     public void RestartLevel()
     {
-        GlanceAds.LevelAnalytics(GameManager.currentLevel);
+        GlanceAds.EndAnalytics(GameManager.currentLevel);
         GlanceAds.ReplayAnalytics(GameManager.currentLevel);
+        GlanceAds.LevelAnalytics(GameManager.currentLevel);
         GlanceAds.ReplayAd("ReplayOnRestart");
         // chỉ cho restart khi đang không có tutorial
         if (GameConfig.instance.tutorialControl.haveTutorial == false)
@@ -663,7 +673,6 @@ public class GameControl : MonoBehaviour
         {
             GlanceAds.LevelCompletedAnalytics(GameManager.currentLevel);
             StartCoroutine(WinCoroutine());
-            GlanceAds.EndAnalytics(GameManager.currentLevel);
         }
     }
     //-------------------------------------------
