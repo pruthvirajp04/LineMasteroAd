@@ -20,7 +20,22 @@ public class PausePopup : MonoBehaviour
 		
 
 	}
-    
+
+    private void Update()
+    {
+        if (PlayerPrefs.HasKey("DoneReplay"))
+        {
+            PlayerPrefs.DeleteKey("DoneReplay");
+            if (PlayerPrefs.GetInt("InitialMusic") == 1)
+            {
+                AudioManager.SetMusicStatus(true);
+            }
+            if (PlayerPrefs.GetInt("InitialSound") == 1)
+            {
+                AudioManager.SetMusicStatus(true);
+            }
+        }
+    }
 
     void OnDisable ()
 	{
@@ -29,8 +44,8 @@ public class PausePopup : MonoBehaviour
 
 	public void Menu ()
 	{
-		GlanceAds.EndAnalytics(GameManager.currentLevel);
-		GlanceAds.ReplayAd("ReplayOnHome");
+        GlanceAds.ReplayAd("replay");
+        GlanceAds.EndAnalytics(GameManager.currentLevel);		
 		if (GameConfig.instance.tutorialControl.haveTutorial) {
 			GameConfig.instance.tutorialControl.gameObject.SetActive (false);
 		}

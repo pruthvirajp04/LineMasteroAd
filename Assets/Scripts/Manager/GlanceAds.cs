@@ -65,10 +65,19 @@ public class GlanceAds : MonoBehaviour
         AudioManager.SetMusicStatus(false);
         AudioManager.SetSoundStatus(false);
     }
-    public void enableAudio()
+    public void enableSound(string boolean)
     {
-        AudioManager.SetMusicStatus(true);
-        AudioManager.SetSoundStatus(true);
+        if(boolean == "true")
+        {
+            AudioManager.SetMusicStatus(true);
+            AudioManager.SetSoundStatus(true);
+        }
+        else
+        {
+            AudioManager.SetMusicStatus(false);
+            AudioManager.SetSoundStatus(false);
+        }
+        
     }
     public void setLanguage(string LanguageChar)
     {

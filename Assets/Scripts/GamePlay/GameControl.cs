@@ -290,10 +290,10 @@ public class GameControl : MonoBehaviour
 
     public void RestartLevel()
     {
+        GlanceAds.ReplayAd("replay");
         GlanceAds.EndAnalytics(GameManager.currentLevel);
         GlanceAds.ReplayAnalytics(GameManager.currentLevel);
-        GlanceAds.LevelAnalytics(GameManager.currentLevel);
-        GlanceAds.ReplayAd("ReplayOnRestart");
+        GlanceAds.LevelAnalytics(GameManager.currentLevel);       
         // chỉ cho restart khi đang không có tutorial
         if (GameConfig.instance.tutorialControl.haveTutorial == false)
         {
@@ -440,6 +440,18 @@ public class GameControl : MonoBehaviour
 
     void Update()
     {
+        if (PlayerPrefs.HasKey("DoneReplay"))
+        {
+            PlayerPrefs.DeleteKey("DoneReplay");
+            if (PlayerPrefs.GetInt("InitialMusic") == 1)
+            {
+                AudioManager.SetMusicStatus(true);
+            }
+            if (PlayerPrefs.GetInt("InitialSound") == 1)
+            {
+                AudioManager.SetMusicStatus(true);
+            }
+        }
         if (GameManager.gameState == GameState.Playing)
         {
             bool canCreateNewLine = false;
