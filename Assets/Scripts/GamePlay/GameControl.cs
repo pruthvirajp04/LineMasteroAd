@@ -290,7 +290,12 @@ public class GameControl : MonoBehaviour
 
     public void RestartLevel()
     {
-        GlanceAds.ReplayAd("replay");
+        AudioManager.instance.StoreOriginalStatus();
+        AudioManager.SetMusicStatus(false);
+        AudioManager.SetSoundStatus(false);
+
+        GlanceAds.ReplayAd("ReplayOnRestart");
+
         GlanceAds.EndAnalytics(GameManager.currentLevel);
         GlanceAds.ReplayAnalytics(GameManager.currentLevel);
         GlanceAds.LevelAnalytics(GameManager.currentLevel);       
@@ -403,7 +408,7 @@ public class GameControl : MonoBehaviour
         return l;
     }
 
-    void ClearLine(PointCell pc1, PointCell pc2)
+    public void ClearLine(PointCell pc1, PointCell pc2)
     {
         // xóa 1 line theo 2 pointCell
         for (int i = 0; i < listLine.Count; i++)
@@ -851,11 +856,7 @@ public class GameControl : MonoBehaviour
 
     public void Hint()
     {
-        if(GlanceAds.instance != null)
-        {
-            GlanceAds.RewardedAdsAnalytics("HintReward", "CancelHintReward");
-            GlanceAds.RewardedAd("Hint");
-        }
+        
         if (GameConfig.instance.tutorialControl.haveTutorial)
         {
             return;
@@ -969,11 +970,19 @@ public class GameControl : MonoBehaviour
 
     public void Undo()
     {
-        if(GlanceAds.instance != null)
-        {
-            GlanceAds.RewardedAdsAnalytics("UndoReward", "CancelUndoReward");
-            GlanceAds.RewardedAd("Undo");
-        }
+        AudioManager.instance.StoreOriginalStatus();
+        AudioManager.SetMusicStatus(false);
+        AudioManager.SetSoundStatus(false);
+
+        GlanceAds.RewardedAdsAnalytics("UndoReward", "CancelUndoReward");
+        GlanceAds.RewardedAd("Undo");       
+        
+    }
+
+    #endregion
+
+    public void UndoAction()
+    {
         if (GameConfig.instance.tutorialControl.haveTutorial == true)
         {
             // 
@@ -1017,8 +1026,6 @@ public class GameControl : MonoBehaviour
         // remove undo module
         listUndoModuleMain.Remove(undo);
     }
-
-    #endregion
 }
 
 [System.Serializable]

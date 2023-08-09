@@ -15,7 +15,11 @@ public class WinPopupControl : MonoBehaviour
 	{
 		if(GameManager.currentLevel % 3 == 0)
 		{
-			GlanceAds.ReplayAd("replayWin");
+            AudioManager.instance.StoreOriginalStatus();
+            AudioManager.SetMusicStatus(false);
+            AudioManager.SetSoundStatus(false);
+
+            GlanceAds.ReplayAd("ReplayOnLevel");
 		}
 		transform.position = new Vector3 (0, 0, 0);
 		transform.localScale = new Vector3 (0, 0, 0);
@@ -48,24 +52,11 @@ public class WinPopupControl : MonoBehaviour
 		}
         //StartCoroutine(ShowAds());
 	}
-    private void Update()
-    {
-        if (PlayerPrefs.HasKey("DoneReplayWin"))
-        {
-            PlayerPrefs.DeleteKey("DoneReplayWin");
-            if (PlayerPrefs.GetInt("InitialMusic") == 1)
-            {
-				AudioManager.SetMusicStatus(true);
-            }
-            if (PlayerPrefs.GetInt("InitialSound") == 1)
-            {
-                AudioManager.SetSoundStatus(true);
-            }
-        }
-    }
+    
 
     public void Next ()
 	{
+		GlanceAds.LevelAnalytics(GameManager.currentLevel++);
 		AudioManager.PlaySound (AudioClipType.AC_BUTTON);
 		GameControl.instance.blackLayer.SetActive (false);
 		PopupManager.instance.HidePopup (PopupName.Win);

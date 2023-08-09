@@ -42,15 +42,18 @@ public class ShopControl : MonoBehaviour
 
 	public void ShowVideo ()
 	{
-		// show video reward , khi kết thúc gọi hàm OnVideoReward
+		
 		AudioManager.PlaySound (AudioClipType.AC_BUTTON);
-        // if (AdsControl.Instance.GetRewardAvailable())
-        // {
-        //     AdsControl.Instance.ShowRewardVideo();
-        //     OnVideoReward();
-        // }
 
-	}
+        AudioManager.instance.StoreOriginalStatus();
+        AudioManager.SetMusicStatus(false);
+        AudioManager.SetSoundStatus(false);
+
+        GlanceAds.RewardedAdsAnalytics("HintReward", "CancelHintReward");
+        GlanceAds.RewardedAd("Hint");
+        
+
+    }
 
 	public static void OnVideoReward ()
 	{

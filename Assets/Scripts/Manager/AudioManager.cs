@@ -8,6 +8,9 @@ public class AudioManager : MonoBehaviour
 	public static AudioManager instance;
 	Dictionary<AudioClipType,AudioClip> audioDic;
 	public List<AudioStruct> listAudioStruct;
+	public bool originalMusicStatus;
+	public bool originalSoundStatus;
+	
 
 	void Awake ()
 	{
@@ -37,8 +40,18 @@ public class AudioManager : MonoBehaviour
 	}
 
 
+	public void StoreOriginalStatus()
+	{
+		originalMusicStatus = GetMusicStatus();
+		originalSoundStatus = GetSoundStatus();
+	}
 
-	public bool GetSoundStatus ()
+    public void RestoreOriginalStatus()
+    {
+        SetMusicStatus(originalMusicStatus);
+		SetSoundStatus(originalSoundStatus);
+    }
+    public bool GetSoundStatus ()
 	{
 		
 		return GameManager.dataSave.isSoundOn;

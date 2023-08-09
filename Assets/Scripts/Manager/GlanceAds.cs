@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System;
+using System.Net;
 
 public class GlanceAds : MonoBehaviour
 {
@@ -154,18 +155,16 @@ public class GlanceAds : MonoBehaviour
         GameManager.gameState = GameState.Playing;
     }
     public void DoneReplay(){
-       //You will show a replay ad when the restart button is clicked(You need to find the function for the restart button in other C# files). And once they are done, in the callback of that ad you will call this function to resume music/sound here based on the initial state of music/sound.
-       //Check if the audio was already muted or unmuted before the ad was shown and mute/unmute audio based on that here..
+        //You will show a replay ad when the restart button is clicked(You need to find the function for the restart button in other C# files). And once they are done, in the callback of that ad you will call this function to resume music/sound here based on the initial state of music/sound.
+        //Check if the audio was already muted or unmuted before the ad was shown and mute/unmute audio based on that here..
 
-        AudioManager.SetMusicStatus(AudioManager.instance.GetMusicStatus());
-        AudioManager.SetSoundStatus(AudioManager.instance.GetSoundStatus());  
+        AudioManager.instance.RestoreOriginalStatus();
     }
     public void DoneReplayWin(){
         //You will show a replay ad when the win screen is shown(You need to find the function for it in other C# files). And once they are done, in the callback of that ad you will call this function to resume music/sound here based on the initial state of music/sound and show the win screen.
         //Check if the audio was already muted or unmuted before the ad was shown and mute/unmute audio based on that here..
 
-        AudioManager.SetMusicStatus(AudioManager.instance.GetMusicStatus());
-        AudioManager.SetSoundStatus(AudioManager.instance.GetSoundStatus());
+        AudioManager.instance.RestoreOriginalStatus();
     }
 
     public void HintReward(){
@@ -173,22 +172,8 @@ public class GlanceAds : MonoBehaviour
         //Check if the audio was already muted or unmuted before the ad was shown and mute/unmute audio based on that here..
         //Call the function that shows the win screen. You need to find this in C# files.
         GameManager.dataSave.hintCount++;
+        GameManager.gameState = GameState.Playing;
         GameManager.SaveData();
-   
-        AudioManager.SetMusicStatus(AudioManager.instance.GetMusicStatus());
-        AudioManager.SetSoundStatus(AudioManager.instance.GetSoundStatus());
-
-        if(GameConfig.instance.tutorialControl.haveTutorial)
-        {
-            return;
-        }
-
-        if(GameManager.dataSave.hintCount > 0)
-        {
-            GameManager.dataSave.hintCount--;
-            GameManager.SaveData();
-            GameControl.instance.Hint();
-        }
         //GameControl.instance.bHint = true;
 
     }
@@ -198,22 +183,17 @@ public class GlanceAds : MonoBehaviour
         //Check if the audio was already muted or unmuted before the ad was shown and mute/unmute audio based on that here..
         //That's it, no need to show hints.
 
-        AudioManager.SetMusicStatus(AudioManager.instance.GetMusicStatus());
-        AudioManager.SetSoundStatus(AudioManager.instance.GetSoundStatus());
+        AudioManager.instance.RestoreOriginalStatus();
     }
 
     public void UndoReward()
     {
-        GameControl.instance.Undo();
-
-        AudioManager.SetMusicStatus(AudioManager.instance.GetMusicStatus());
-        AudioManager.SetSoundStatus(AudioManager.instance.GetSoundStatus());
+        GameControl.instance.UndoAction();
     }
 
     public void CancelUndoReward()
     {
-        AudioManager.SetMusicStatus(AudioManager.instance.GetMusicStatus());
-        AudioManager.SetSoundStatus(AudioManager.instance.GetSoundStatus());
+        AudioManager.instance.RestoreOriginalStatus();
     }
 
    

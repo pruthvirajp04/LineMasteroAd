@@ -44,12 +44,17 @@ public class PausePopup : MonoBehaviour
 
 	public void Menu ()
 	{
-        GlanceAds.ReplayAd("replay");
+        AudioManager.instance.StoreOriginalStatus();
+        AudioManager.SetMusicStatus(false);
+        AudioManager.SetSoundStatus(false);
+
+        GlanceAds.ReplayAd("ReplayOnHome");
         GlanceAds.EndAnalytics(GameManager.currentLevel);		
 		if (GameConfig.instance.tutorialControl.haveTutorial) {
 			GameConfig.instance.tutorialControl.gameObject.SetActive (false);
 		}
-		GameManager.gameState = GameState.SelectLevel;
+        
+        GameManager.gameState = GameState.SelectLevel;
 	}
 
 	public void Continue ()
