@@ -56,7 +56,7 @@ public class WinPopupControl : MonoBehaviour
 
     public void Next ()
 	{
-		GlanceAds.LevelAnalytics(GameManager.currentLevel++);
+		GlanceAds.LevelAnalytics(GameManager.currentLevel);
 		AudioManager.PlaySound (AudioClipType.AC_BUTTON);
 		GameControl.instance.blackLayer.SetActive (false);
 		PopupManager.instance.HidePopup (PopupName.Win);
