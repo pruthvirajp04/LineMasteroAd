@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
 	public static AudioManager instance;
 	Dictionary<AudioClipType,AudioClip> audioDic;
 	public List<AudioStruct> listAudioStruct;
+
 	public bool originalMusicStatus;
 	public bool originalSoundStatus;
 	

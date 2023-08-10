@@ -89,7 +89,7 @@ public class GlanceAds : MonoBehaviour
         {
             GameManager.dataSave.language = Language.English;
         }
-        else if(LanguageChar.Equals("bh", StringComparison.OrdinalIgnoreCase))
+        else if(LanguageChar.Equals("id", StringComparison.OrdinalIgnoreCase))
         {
             GameManager.dataSave.language = Language.Bahasa;
         }
@@ -176,6 +176,7 @@ public class GlanceAds : MonoBehaviour
         GameManager.SaveData();
         //GameControl.instance.bHint = true;
 
+        AudioManager.instance.RestoreOriginalStatus();
     }
     public void CancelHintReward(){
 
@@ -189,6 +190,8 @@ public class GlanceAds : MonoBehaviour
     public void UndoReward()
     {
         GameControl.instance.UndoAction();
+
+        AudioManager.instance.RestoreOriginalStatus();
     }
 
     public void CancelUndoReward()
