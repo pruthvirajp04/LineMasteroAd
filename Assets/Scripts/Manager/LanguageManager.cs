@@ -20,6 +20,11 @@ public class LanguageManager : MonoBehaviour
 		currentLanguageModule = languageDict [GameManager.dataSave.language];
 	}
 
+	public void ChangeLanguage(Language newLanguage)
+	{
+		currentLanguageModule = languageDict[newLanguage];
+	}
+
 	public static string GetText (LanguageKey key)
 	{
 		string k = key.ToString ();

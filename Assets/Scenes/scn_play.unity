@@ -702,6 +702,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 570d734765e403440b1e2366c1f65ce7, type: 3}
   - type: 9
     clip: {fileID: 8300000, guid: decb8bd84d238e44cbd8b1ddfea1f6bb, type: 3}
+  originalMusicStatus: 0
+  originalSoundStatus: 0
   AS_SOUND: {fileID: 79161266}
   AS_MUSIC: {fileID: 79161265}
 --- !u!4 &79161268

@@ -93,6 +93,9 @@ public class GlanceAds : MonoBehaviour
         {
             GameManager.dataSave.language = Language.Bahasa;
         }
+
+        LanguageManager.instance.ChangeLanguage(GameManager.dataSave.language);
+        Debug.Log("Language is: " + GameManager.dataSave.language);
     }
 
     public void setAd(string Adtype)
