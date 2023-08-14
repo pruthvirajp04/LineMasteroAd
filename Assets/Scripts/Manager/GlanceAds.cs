@@ -97,6 +97,11 @@ public class GlanceAds : MonoBehaviour
         LanguageManager.instance.ChangeLanguage(GameManager.dataSave.language);
         Debug.Log("Language is: " + GameManager.dataSave.language);
     }
+    public void setLanguage1(string LanguageChar)
+    {
+        PlayerPrefs.DeleteKey("LanguageChar");
+        PlayerPrefs.SetString("LanguageChar", LanguageChar);
+    }
 
     public void setAd(string Adtype)
     {
