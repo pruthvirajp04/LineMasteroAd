@@ -66,17 +66,17 @@ public class GlanceAds : MonoBehaviour
         AudioManager.SetMusicStatus(false);
         AudioManager.SetSoundStatus(false);
     }
-    public void enableSound(string boolean)
+    public void enableSound(bool isMuted)
     {
-        if(boolean == "true")
-        {
-            AudioManager.SetMusicStatus(true);
-            AudioManager.SetSoundStatus(true);
-        }
-        else
+        if(isMuted)
         {
             AudioManager.SetMusicStatus(false);
             AudioManager.SetSoundStatus(false);
+        }
+        else
+        {
+            AudioManager.SetMusicStatus(true);
+            AudioManager.SetSoundStatus(true);
         }
         
     }
