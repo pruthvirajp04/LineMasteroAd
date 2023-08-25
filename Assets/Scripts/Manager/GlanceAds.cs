@@ -52,7 +52,7 @@ public class GlanceAds : MonoBehaviour
     PausePopup pausePopup;
     void Awake()
     {
-        Application.runInBackground = true;
+        //Application.runInBackground = true;
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
