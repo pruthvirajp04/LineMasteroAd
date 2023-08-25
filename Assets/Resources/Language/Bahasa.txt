@@ -91,7 +91,7 @@
 		"YA",
 		"TIDAK",
 		"Kamu telah mendapatkan 1 Petunjuk!",
-		"TINGKAT ",
+		"LEVEL ",
 		"SELESAI!",
 		"Koin dapat diperoleh untuk pertama kali",
 		"BAGIKAN",
