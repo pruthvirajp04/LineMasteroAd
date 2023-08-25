@@ -683,25 +683,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listAudioStruct:
   - type: 0
-    clip: {fileID: 8300000, guid: 4f6ad2fdd61a58d46a4c5b884e39762d, type: 3}
+    clip: {fileID: 8300000, guid: c6906394d206b4246af0237356d5c891, type: 3}
   - type: 1
-    clip: {fileID: 8300000, guid: b8b35747e72cf4b4386d2c73c717e7d5, type: 3}
+    clip: {fileID: 8300000, guid: 6e5a02fced40cb84b90cd88a0a293ab4, type: 3}
   - type: 2
-    clip: {fileID: 8300000, guid: 2da6c64b0cf9f2d41b29ab1f249b6dd6, type: 3}
+    clip: {fileID: 8300000, guid: e1f127f01dad9bf4a802704cfb000a65, type: 3}
   - type: 3
     clip: {fileID: 8300000, guid: 8933a63291c93484a9ae8392b0772e22, type: 3}
   - type: 4
     clip: {fileID: 8300000, guid: d59498bf87877024d86a6bca66c54aea, type: 3}
   - type: 5
-    clip: {fileID: 8300000, guid: 76d9ad00f2c9d1343a47b0b23b0c2005, type: 3}
+    clip: {fileID: 8300000, guid: 31579f740ade6e94190813b09440c15a, type: 3}
   - type: 6
     clip: {fileID: 8300000, guid: 93c48166d0897e8489542233cc7cb669, type: 3}
   - type: 7
-    clip: {fileID: 8300000, guid: 517c65cdff7dae24dbab860443340f35, type: 3}
+    clip: {fileID: 8300000, guid: 14adfce9897d73347946fa4680699321, type: 3}
   - type: 8
     clip: {fileID: 8300000, guid: 570d734765e403440b1e2366c1f65ce7, type: 3}
   - type: 9
-    clip: {fileID: 8300000, guid: decb8bd84d238e44cbd8b1ddfea1f6bb, type: 3}
+    clip: {fileID: 8300000, guid: 9fb2c3634b9d11c49a137a50a3b570ff, type: 3}
   originalMusicStatus: 0
   originalSoundStatus: 0
   AS_SOUND: {fileID: 79161266}
@@ -7222,8 +7222,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222152180}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8622189, y: -4.1073823, z: 0.027938843}
-  m_LocalScale: {x: 60, y: 100, z: 1}
+  m_LocalPosition: {x: 1.8623, y: -4.0726, z: 0.027938843}
+  m_LocalScale: {x: 76.53525, y: 136.97948, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1324132293}
