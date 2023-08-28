@@ -49,7 +49,7 @@ public class GlanceAds : MonoBehaviour
     [DllImport("__Internal")]
     public static extern void IngameAnalytics(string items, int amount, int level);
 
-    PausePopup pausePopup;
+    
     void Awake()
     {
         //Application.runInBackground = true;
@@ -147,13 +147,8 @@ public class GlanceAds : MonoBehaviour
     public void gotoHomeEvent()
     {
         //TODO: Logic to go to home screen
-        if (GameConfig.instance.tutorialControl.haveTutorial)
-        {
-            GameConfig.instance.tutorialControl.gameObject.SetActive(false);
-        }
-        GameManager.gameState = GameState.SelectLevel;
-        Debug.Log("Go to home event works");
-        
+        PausePopup.instance.Menu();
+
     }
 
     public void gotoLevel(int levelNo)
