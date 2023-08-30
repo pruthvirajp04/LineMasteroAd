@@ -7,11 +7,9 @@ public class PausePopup : MonoBehaviour
 {
 	public CustomToggle musicToggle, soundToggle;
 	public Text tMenu, tContinue, tSound, tMusic;
-	public static PausePopup instance;
 
 	void OnEnable ()
 	{
-		instance = this;
 		GameCanvas.instance.blackLayer.gameObject.SetActive (true);
 		tMenu.text = LanguageManager.GetText (LanguageKey.quit);
 		tContinue.text = LanguageManager.GetText (LanguageKey.Continue);
@@ -49,16 +47,15 @@ public class PausePopup : MonoBehaviour
         AudioManager.instance.StoreOriginalStatus();
         AudioManager.SetMusicStatus(false);
         AudioManager.SetSoundStatus(false);
-        GlanceAds.ReplayAd("ReplayOnHome");
-        GlanceAds.EndAnalytics(GameManager.currentLevel);
 
-        if (GameConfig.instance.tutorialControl.haveTutorial)
-        {
-            GameConfig.instance.tutorialControl.gameObject.SetActive(false);
-        }
+        GlanceAds.ReplayAd("ReplayOnHome");
+        GlanceAds.EndAnalytics(GameManager.currentLevel);		
+		if (GameConfig.instance.tutorialControl.haveTutorial) {
+			GameConfig.instance.tutorialControl.gameObject.SetActive (false);
+		}
+        
         GameManager.gameState = GameState.SelectLevel;
-        Debug.Log("GoTo Home Event Works");
-    }
+	}
 
 	public void Continue ()
 	{
