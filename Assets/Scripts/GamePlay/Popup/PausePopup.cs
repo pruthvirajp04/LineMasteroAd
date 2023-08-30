@@ -7,9 +7,10 @@ public class PausePopup : MonoBehaviour
 {
 	public CustomToggle musicToggle, soundToggle;
 	public Text tMenu, tContinue, tSound, tMusic;
-
+	public static PausePopup instance;
 	void OnEnable ()
 	{
+	
 		GameCanvas.instance.blackLayer.gameObject.SetActive (true);
 		tMenu.text = LanguageManager.GetText (LanguageKey.quit);
 		tContinue.text = LanguageManager.GetText (LanguageKey.Continue);
@@ -20,6 +21,11 @@ public class PausePopup : MonoBehaviour
 		
 
 	}
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Update()
     {
