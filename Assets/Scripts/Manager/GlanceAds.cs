@@ -50,7 +50,7 @@ public class GlanceAds : MonoBehaviour
     public static extern void IngameAnalytics(string items, int amount, int level);
     void Awake()
     {
-        //Application.runInBackground = true;
+        Application.runInBackground = true;
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
@@ -109,11 +109,7 @@ public class GlanceAds : MonoBehaviour
     public void pauseEvent()
     {
         //TODO: logic to pause the game
-        if(GameManager.gameState == GameState.Playing && GameConfig.instance.tutorialControl.haveTutorial == false)
-        {
-            GameManager.gameState = GameState.Pause;
-            Debug.Log("Pause Event Works");
-        }
+        PauseButton.instance.OnMouseDown();
         
     }
     

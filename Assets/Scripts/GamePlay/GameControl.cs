@@ -5,6 +5,7 @@ using DG.Tweening;
 using UnityEngine.UI;
 public class GameControl : MonoBehaviour
 {
+    
     // các button trợ giúp gameplay
     public Button bUndo, bReplay, bHint;
     // layer đen trong suốt
@@ -274,6 +275,7 @@ public class GameControl : MonoBehaviour
 
     public void NextLevel()
     {
+        GameManager.isFullyGameLoaded = false;
         StopHint();
         ClearOldLevel();
         InitGoalLines();
@@ -284,12 +286,14 @@ public class GameControl : MonoBehaviour
             card.DOLocalMoveX(0, 1F).SetEase(Ease.OutQuad).OnComplete(() =>
             {
                 InitNewtLevel();
+                GameManager.isFullyGameLoaded = true;
             });
         });
     }
 
     public void RestartLevel()
     {
+        GameManager.isFullyGameLoaded = false;
         AudioManager.instance.StoreOriginalStatus();
         AudioManager.SetMusicStatus(false);
         AudioManager.SetSoundStatus(false);
@@ -307,6 +311,7 @@ public class GameControl : MonoBehaviour
             ClearOldLevel();
             InitGoalLines();
             InitNewtLevel();
+            GameManager.isFullyGameLoaded = true;
         }
     }
 

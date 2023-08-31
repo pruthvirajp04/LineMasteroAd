@@ -10,15 +10,14 @@ public class PausePopup : MonoBehaviour
 	public static PausePopup instance;
 	void OnEnable ()
 	{
-	
-		GameCanvas.instance.blackLayer.gameObject.SetActive (true);
+		GameManager.gameState = GameState.Pause;
+        GameCanvas.instance.blackLayer.gameObject.SetActive (true);
 		tMenu.text = LanguageManager.GetText (LanguageKey.quit);
 		tContinue.text = LanguageManager.GetText (LanguageKey.Continue);
 		tSound.text = LanguageManager.GetText (LanguageKey.sounds_label);
 		tMusic.text = LanguageManager.GetText (LanguageKey.music_label);
 		musicToggle.value = GameManager.dataSave.isMusicOn;
 		soundToggle.value = GameManager.dataSave.isSoundOn;
-		
 
 	}
 
@@ -79,5 +78,5 @@ public class PausePopup : MonoBehaviour
 		Debug.Log ("Music is : " + !musicToggle.value);
 		AudioManager.SetMusicStatus (!musicToggle.value);
 	}
-
+	
 }

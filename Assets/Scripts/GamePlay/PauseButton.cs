@@ -4,9 +4,22 @@ using UnityEngine;
 
 public class PauseButton : MonoBehaviour
 {
+    public static PauseButton instance;
 
-	void OnMouseDown()
+    private void Awake()
+    {
+        instance = this;
+    }
+    public void OnMouseDown()
 	{
-		GlanceAds.instance.pauseEvent();
-	}
+         
+        if (GameManager.isFullyGameLoaded && GameManager.gameState == GameState.Playing && GameConfig.instance.tutorialControl.haveTutorial == false)
+        {
+            GameManager.gameState = GameState.Pause;
+            PausePopup.instance.gameObject.SetActive(true);
+            Debug.Log("Pause Event Works");
+        }
+        
+       
+    }
 }

@@ -9,8 +9,9 @@ using DG.Tweening;
 public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
-	
-	void Awake ()
+    public static bool isFullyGameLoaded = true;
+
+    void Awake ()
 	{
        
 		instance = this;
