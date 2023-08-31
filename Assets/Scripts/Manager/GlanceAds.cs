@@ -50,7 +50,6 @@ public class GlanceAds : MonoBehaviour
     public static extern void IngameAnalytics(string items, int amount, int level);
     void Awake()
     {
-        Application.runInBackground = true;
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
