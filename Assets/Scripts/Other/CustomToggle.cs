@@ -7,14 +7,16 @@ using UnityEngine.UI;
 public class CustomToggle : MonoBehaviour
 {
 	bool _value;
-	public GameObject ON, OFF;
+	public GameObject ON, OFF, Bahasa_ON, Bahasa_OFF;
 
 	void Awake ()
 	{
 		
 		Button bt = GetComponent<Button> ();
-		bt.onClick.AddListener (() => {
+		bt.onClick.AddListener (() => 
+		{
 			value = !value;
+			
 		});
 	}
 
@@ -23,9 +25,33 @@ public class CustomToggle : MonoBehaviour
 		set {
 			_value = value;
 
-			ON.SetActive (value ? true : false);
-			OFF.SetActive (value ? false : true);
+			UpdateToggleState();
 
+			//ON.SetActive (value ? true : false);
+			//OFF.SetActive (value ? false : true);
+
+		}
+
+	}
+
+	void UpdateToggleState()
+	{
+		bool isOn = _value;
+		string lang = PlayerPrefs.GetString("LanguageChar");
+
+		if(lang == "en")
+		{
+			ON.SetActive (isOn);
+			OFF.SetActive (!isOn);
+			Bahasa_ON.SetActive(false);
+			Bahasa_OFF.SetActive (false);
+		}
+		else if(lang == "id")
+		{
+			Bahasa_ON.SetActive(isOn);
+			Bahasa_OFF.SetActive(!isOn);
+			ON.SetActive (false);
+			OFF.SetActive (false);
 		}
 
 	}

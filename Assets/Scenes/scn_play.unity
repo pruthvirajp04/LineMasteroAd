@@ -4390,6 +4390,7 @@ GameObject:
   - component: {fileID: 628068360}
   - component: {fileID: 628068359}
   - component: {fileID: 628068358}
+  - component: {fileID: 628068362}
   m_Layer: 5
   m_Name: MUSIC
   m_TagString: Untagged
@@ -4528,6 +4529,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628068356}
   m_CullTransparentMesh: 0
+--- !u!114 &628068362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628068356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a64e6df7661c942b9163e009707f38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MusicButtonImage: {fileID: 628068360}
+  MusicOn_EN: {fileID: 21300000, guid: d1cecd66f028da24888caa2c50150a67, type: 3}
+  MusicOff_EN: {fileID: 21300000, guid: e5419bc69f9e4fe469154bd1612a3b62, type: 3}
+  MusicOn_ID: {fileID: 21300000, guid: 779899e9c52d5b141b03af4ee55c41cb, type: 3}
+  MusicOff_ID: {fileID: 21300000, guid: bbbebda2213bc254b9c67e15280a9aba, type: 3}
 --- !u!1001 &668481640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6605,7 +6623,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1072130641
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8011,6 +8029,7 @@ GameObject:
   - component: {fileID: 1330004724}
   - component: {fileID: 1330004723}
   - component: {fileID: 1330004722}
+  - component: {fileID: 1330004726}
   m_Layer: 5
   m_Name: SOUND
   m_TagString: Untagged
@@ -8149,6 +8168,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330004720}
   m_CullTransparentMesh: 0
+--- !u!114 &1330004726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330004720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a64e6df7661c942b9163e009707f38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MusicButtonImage: {fileID: 1330004724}
+  MusicOn_EN: {fileID: 21300000, guid: d1cecd66f028da24888caa2c50150a67, type: 3}
+  MusicOff_EN: {fileID: 21300000, guid: e5419bc69f9e4fe469154bd1612a3b62, type: 3}
+  MusicOn_ID: {fileID: 21300000, guid: 779899e9c52d5b141b03af4ee55c41cb, type: 3}
+  MusicOff_ID: {fileID: 21300000, guid: bbbebda2213bc254b9c67e15280a9aba, type: 3}
 --- !u!1 &1336070950
 GameObject:
   m_ObjectHideFlags: 0
