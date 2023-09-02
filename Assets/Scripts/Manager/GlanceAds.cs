@@ -108,7 +108,7 @@ public class GlanceAds : MonoBehaviour
     public void pauseEvent()
     {
         //TODO: logic to pause the game
-        PauseButton.instance.OnMouseDown();
+        //PauseButton.instance.OnMouseDown();
         
     }
     
