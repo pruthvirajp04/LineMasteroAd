@@ -31,7 +31,35 @@ public class AudioManager : MonoBehaviour
 		//AS_MUSIC.volume = GameManager.dataSave.isMusicOn == true ? 1F : 0;
 	}
 
-	public AudioSource AS_SOUND, AS_MUSIC;
+    private void OnApplicationPause(bool pause)
+    {
+        if (pause)
+        {
+            AS_MUSIC.Pause();
+            AS_SOUND.Pause();
+        }
+        else
+        {
+            AS_MUSIC.UnPause();
+            AS_SOUND.UnPause();
+        }
+    }
+
+    private void OnApplicationFocus(bool focus)
+    {
+        if (!focus)
+        {
+            AS_MUSIC.Pause();
+            AS_SOUND.Pause();
+        }
+        else
+        {
+            AS_MUSIC.UnPause();
+            AS_SOUND.UnPause();
+        }
+    }
+
+    public AudioSource AS_SOUND, AS_MUSIC;
 
 	[System.Serializable]
 	public struct AudioStruct
