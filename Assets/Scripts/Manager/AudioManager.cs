@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
 
 	public bool originalMusicStatus;
 	public bool originalSoundStatus;
-	
+
 
 	void Awake ()
 	{
@@ -31,33 +31,9 @@ public class AudioManager : MonoBehaviour
 		//AS_MUSIC.volume = GameManager.dataSave.isMusicOn == true ? 1F : 0;
 	}
 
-    private void OnApplicationPause(bool pause)
-    {
-        if (pause)
-        {
-            AS_MUSIC.Pause();
-            AS_SOUND.Pause();
-        }
-        else
-        {
-            AS_MUSIC.UnPause();
-            AS_SOUND.UnPause();
-        }
-    }
+   
 
-    private void OnApplicationFocus(bool focus)
-    {
-        if (!focus)
-        {
-            AS_MUSIC.Pause();
-            AS_SOUND.Pause();
-        }
-        else
-        {
-            AS_MUSIC.UnPause();
-            AS_SOUND.UnPause();
-        }
-    }
+   
 
     public AudioSource AS_SOUND, AS_MUSIC;
 
@@ -122,7 +98,23 @@ public class AudioManager : MonoBehaviour
 
 	}
 
-	public static void PlaySound (AudioClipType type)
+    public void PauseMusic()
+    {
+        if (AS_MUSIC.isPlaying)
+        {
+            AS_MUSIC.Stop();
+        }
+    }
+
+    public void ResumeMusic()
+    {
+        if (!AS_MUSIC.isPlaying && GetMusicStatus())
+        {
+            AS_MUSIC.Play();
+        }
+    }
+
+    public static void PlaySound (AudioClipType type)
 	{
 		instance.AS_SOUND.PlayOneShot (instance.audioDic [type]);
 	}
