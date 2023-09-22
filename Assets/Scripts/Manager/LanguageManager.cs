@@ -42,8 +42,7 @@ public class LanguageManager : MonoBehaviour
 public enum Language
 {
 	English,
-	Bahasa,
-	German
+	Bahasa
 }
 
 [System.Serializable]
