@@ -27,6 +27,10 @@ public class LogoSelector : MonoBehaviour
         {
             LogoImage.sprite = textures[1];
         }
+        else if (lang == "de")
+        {
+            LogoImage.sprite = textures[2];
+        }
         else 
         {
             LogoImage.sprite = textures[0];

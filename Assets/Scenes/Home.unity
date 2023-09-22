@@ -216,6 +216,7 @@ MonoBehaviour:
   textures:
   - {fileID: 21300000, guid: 317d2755d4db51e4bb493f7dee002eb4, type: 3}
   - {fileID: 21300000, guid: aa976d29c3a6cab49af96ceafa049e21, type: 3}
+  - {fileID: 21300000, guid: 701240abe499b334886ce7242ff01db7, type: 3}
 --- !u!1 &908524758
 GameObject:
   m_ObjectHideFlags: 0

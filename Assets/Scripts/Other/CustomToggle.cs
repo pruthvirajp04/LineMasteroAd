@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class CustomToggle : MonoBehaviour
 {
 	bool _value;
-	public GameObject ON, OFF, Bahasa_ON, Bahasa_OFF;
+	public GameObject ON, OFF, Bahasa_ON, Bahasa_OFF, German_ON, German_OFF;
 
 	void Awake ()
 	{
@@ -45,6 +45,8 @@ public class CustomToggle : MonoBehaviour
 			OFF.SetActive (!isOn);
 			Bahasa_ON.SetActive(false);
 			Bahasa_OFF.SetActive (false);
+			German_OFF.SetActive (false);
+			German_ON.SetActive (false);
 		}
 		else if(lang == "id")
 		{
@@ -52,7 +54,19 @@ public class CustomToggle : MonoBehaviour
 			Bahasa_OFF.SetActive(!isOn);
 			ON.SetActive (false);
 			OFF.SetActive (false);
-		}
+            German_OFF.SetActive(false);
+            German_ON.SetActive(false);
+        }
+		else if(lang == "de")
+		{
+            German_ON.SetActive(isOn);
+            German_OFF.SetActive(!isOn);
+            Bahasa_ON.SetActive(false);
+            Bahasa_OFF.SetActive(false);
+            ON.SetActive(false);
+            OFF.SetActive(false);
+
+        }
 
 	}
 
