@@ -90,6 +90,10 @@ public class GlanceAds : MonoBehaviour
         {
             GameManager.dataSave.language = Language.Bahasa;
         }
+         else if(LanguageChar.Equals("ja", StringComparison.OrdinalIgnoreCase))
+        {
+            GameManager.dataSave.language = Language.Japanese;
+        }
 
         LanguageManager.instance.ChangeLanguage(GameManager.dataSave.language);
         Debug.Log("Language is: " + GameManager.dataSave.language);
