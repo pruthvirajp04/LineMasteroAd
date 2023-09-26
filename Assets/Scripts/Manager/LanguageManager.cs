@@ -43,7 +43,8 @@ public enum Language
 {
 	English,
 	Bahasa,
-	German
+	German,
+	Japanese
 }
 
 [System.Serializable]
